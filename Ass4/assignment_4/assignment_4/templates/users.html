@@ -1,0 +1,20 @@
+<!--ass 4 - outerSource-->
+{% extends 'base.html' %}
+{% block title %}users{% endblock %}
+{% block page_body_main_content %}
+    <!-- TITLE -->
+    <section class="colored-section container mycreatePage p-3">
+        <div class="container-fluid p-3">
+            <div class="row">
+                <div class="col-lg-6">
+                    {% filter upper %}
+                        <h1 class="big-heading">B.3 Users table JSON</h1>
+                    {% endfilter %}
+                </div>
+            </div>
+            <hr>
+        </div>
+        <!--content-->
+        <h3>{{ users_json }}</h3>
+    </section>
+{% endblock %}

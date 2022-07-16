@@ -1,0 +1,44 @@
+<!--ass 4 - outerSource-->
+{% extends 'base.html' %}
+{% block title %}outerSource{% endblock %}
+{% block page_body_main_content %}
+    <script defer src="{{ url_for('assignment_4.static', filename='ASS4.js') }}"></script>
+    <section class="colored-section container mycreatePage p-3" id="item2">
+        <div class="container-fluid p-3">
+            <!-- TITLE -->
+            <div class="row">
+                <div class="col-lg-6">
+                    <h1 class="big-heading">B.4 outerSource</h1>
+                </div>
+            </div>
+            <hr>
+        </div>
+
+        <div class="container mb-3">
+            <h2>Fetch - FrontEnd</h2><br>
+            Search user by ID: <input type="number" name="user_id" id="user_id">
+            <input class="btn btn-dark" type="submit" onclick="myFunction()" value="Search">
+        </div>
+
+        <main>
+
+        </main>
+
+        <div class="container mb-3">
+            <h2>Fetch - BackEnd</h2>
+            <form action="/fetch_be" method="get">
+                Search user by ID: <input type="text" name="num_id" value={{ session.num | default(3, true) }}>
+                <input class="btn btn-dark" type="submit" value="Search">
+            </form>
+        </div>
+        {% if session.userByID %}
+            {% for user in session.userByID %}
+                <img src="{{ user.data.avatar }}" alt="pic">
+                <h4>first name : {{ user.first_name | capitalize }} </h4>
+                <h4>email : {{ user.email }}</h4>
+            {% endfor %}
+        {% endif %}
+
+
+    </section>
+{% endblock %}

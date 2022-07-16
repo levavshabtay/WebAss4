@@ -1,0 +1,47 @@
+<!--Header-->
+<header class="navbar sticky-top navbar-expand-lg">
+    <a class="navbar-brand" href="HomePage.html">
+        <h1 class="btn" id="studyBuddy"><i class="fa-solid fa-book"></i> StudyBuddy</h1>
+    </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <!--page links-->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+                <a class="nav-link" href="/">Home</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/connect">Contact Us</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/about">About</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/users">search/registration</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/assignment4">Users</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/assignment4/users">UsersJson</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/assignment4/outer_source">outer source</a>
+            </li>
+        </ul>
+
+        <!--if the user registered-->
+        {% if session['logedin'] %}
+            <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+                <a id="welcomeTitle" role="button" aria-disabled="true">
+                    Welcome {{ session['nickName'] | upper() }}
+                </a>
+            </div>
+        {% endif %}
+
+    </div>
+</header>

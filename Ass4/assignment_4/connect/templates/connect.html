@@ -1,0 +1,66 @@
+<!--contact page-->
+{% extends 'base.html' %}
+{% block title %} connect page {% endblock %}
+{% block page_body_main_content %}
+    <!-- TITLE -->
+    <section class="colored-section container mycreatePage " id="title">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-lg-6">
+                    <h1 class="big-heading">Contact Us </h1>
+                </div>
+            </div>
+            <hr>
+        </div>
+
+        <!--CONTENT-->
+        <section class="colored-section container mycreatePage" id="details">
+            <form action="/connect" method="post" class="needs-validation p-3">
+                <div class="form-floating mb-3">
+                    <input type="text" id="newUserName" class="form-control form-control-lg" pattern="[A-Za-z]{2,}"
+                           required/>
+                    <label class="form-label" for="newUserName"><i class="fa fa-heading mx-3"></i>User Name*</label>
+                    <div class="invalid-feedback ">Please provide a valid name includes letters.</div>
+                </div>
+                <div class="form-floating mb-3">
+                    <input type="tel" id="newUserPhone" class="form-control form-control-lg" pattern="[0-9]{10}"
+                           required/>
+                    <label class="form-label" for="newUserPhone"><i class="fa-solid fa-mobile-retro"></i> Phone*</label>
+                    <div class="invalid-feedback">Please provide a valid Phone.</div>
+                </div>
+                <div class="form-floating mb-3">
+                    <input type="email" id="newEventEmail" class="form-control form-control-lg" required/>
+                    <label class="form-label" for="newEmail"><i class="fa fa-at mx-3"></i>Email To Contact*</label>
+                    <div class="invalid-feedback">Please provide a valid email.</div>
+                </div>
+                <div class="mb-3">
+                    <select class="form-select" aria-label="Category" id="Gender Name" required>
+                        <option selected disabled hidden value="">Please select gender from select menu</option>
+                        <option value="male">Male</option>
+                        <option value="female">Female</option>
+                        <option value="other">Other</option>
+                    </select>
+                    <div class="invalid-feedback">Please provide a valid gender.</div>
+                </div>
+                <div class="form-floating mb-3">
+           <textarea type="text" id="newEventEmail" class="form-control form-control-lg" rows="5" minlength="10"
+                     maxlength="100"></textarea>
+                    <label class="form-label" for="newEventEmail"><i class="fa fa-info mx-3"></i>content*</label>
+                    <div class="invalid-feedback">
+                        Please write 10-100 characters.
+                    </div>
+                </div>
+                <label for="newFile" class="form-label"><i class="fa-solid fa-plus"></i>Upload Profile Picture</label>
+                <input class="form-control mb-3" type="file" id="newFile" accept=".jpeg,.jpg,.png" required/>
+                <div class="invalid-feedback">Please provide one valid file. (jpeg or png)</div>
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="" id="defaultCheck1" required>
+                    <label class="form-check-label" for="defaultCheck1">
+                        <strong>im not a robot</strong>
+                    </label>
+                </div>
+                <input class="btn btn-dark" type="submit" value="submit" id="submit">
+            </form>
+        </section>
+    </section>
+{% endblock %}

@@ -1,0 +1,22 @@
+<!--ass 4 - outerSource-->
+{% extends 'base.html' %}
+{% block title %}outerSource{% endblock %}
+{% block page_body_main_content %}
+    <section class="colored-section container mycreatePage p-3" id="item2">
+        <div class="container-fluid p-3">
+            <!-- TITLE -->
+            <div class="row">
+                <div class="col-lg-6">
+                    <h1 class="big-heading">C.3 User’s data in json</h1>
+                </div>
+            </div>
+            <hr>
+        </div>
+        {% if session['noID'] %}
+            <p>{{ session['noID_message'] }}</p>
+        {% else %}
+            <h3> {{ user }} </h3>
+        {% endif %}
+
+    </section>
+{% endblock %}

@@ -1,0 +1,115 @@
+* {
+    font-family: "Montserrat", sans-serif;
+}
+
+.big-heading {
+    color: #632626;
+    font-weight: bolder;
+    vertical-align: middle;
+    margin: auto;
+}
+
+p {
+    color: black;
+}
+
+.navbar {
+    padding: 1% 4% 1%;
+    background-color: #FCFFE7;
+    position: absolute;
+    width: 100%;
+}
+
+#submit, #NewTask {
+    box-shadow: 0 0 0 0 rgba(0, 0, 0, 1);
+    transform: scale(1);
+    animation: pulse 2s infinite;
+}
+
+/* activate the links */
+.active {
+    color: black;
+}
+
+li {
+    display: inline;
+}
+
+
+.card {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    text-align: left;
+    height: 600px;
+    color: black;
+    font-weight: bold;
+    border: 2px black;
+    padding: 20px;
+    margin-bottom: 30px;
+}
+
+#card {
+    background-color: #DACC96;
+    border: 1px solid black;
+}
+
+#welcomeTitle{
+    padding-right: 15px;
+    color: #632626;
+    font-weight: bold;
+}
+
+@media only screen and (max-width: 600px) {
+    body {
+        background-color: lightskyblue;
+    }
+
+    #container {
+        display: grid;
+        grid-template-areas: 'header'
+        'nav'
+        'footer';
+    }
+
+}
+
+/* DEMO-SPECIFIC STYLES */
+#studyBuddy {
+    overflow: hidden;
+    /* Ensures the content is not revealed until the animation */
+    border-right: .15em solid black;
+    /* The typwriter cursor */
+    margin: 0 auto;
+    /* Gives that scrolling effect as the typing happens */
+    animation: typing 3.5s steps(20, end),
+    blink-caret .5s step-end infinite;
+}
+
+/* The typing effect */
+@keyframes typing {
+    from {
+        width: 0
+    }
+
+    to {
+        width: 100%
+    }
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(0.95);
+        box-shadow: 0 0 0 0 rgba(0, 0, 0, 0.7);
+    }
+
+    70% {
+        transform: scale(1);
+        box-shadow: 0 0 0 10px rgba(0, 0, 0, 0);
+    }
+
+    100% {
+        transform: scale(0.95);
+        box-shadow: 0 0 0 0 rgba(0, 0, 0, 0);
+    }
+}
+
+

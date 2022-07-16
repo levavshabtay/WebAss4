@@ -1,0 +1,96 @@
+<!--ass 3_2-->
+{% extends 'base.html' %}
+{% block title %}search/registration{% endblock %}
+{% block page_body_main_content %}
+    <!-- TITLE -->
+    <section class="colored-section container mycreatePage mb-3" id="title">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-lg-6">
+                    <h1 class="big-heading">Users page</h1>
+                </div>
+            </div>
+            <hr>
+        </div>
+    </section>
+    <!--if registered-->
+    {% if session['logedin'] %}
+        <!-- TITLE -->
+        <section class="colored-section container mycreatePage mb-3" id="title">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-lg-6">
+                        <h1>Welcome, {{ session['nickName'] | upper() }}</h1>
+                    </div>
+                </div>
+                <a id="signOut" href="/log_out" class="btn btn-dark btn-outline-light btn-m signin-button-nav"
+                   tabindex="-1" role="button" aria-disabled="true">
+                    <i class="fa-solid fa-user"></i> Log Out
+                </a>
+            </div>
+        </section>
+
+        <!--if not registered-->
+    {% else %}
+        <section class="colored-section container mycreatePage mb-3" id="details">
+            <h3>registration form</h3>
+            <form method="post" action="/users" class="needs-validation">
+                <input type="text" name="username" placeholder="Username" pattern="[A-Za-z]{2,}" required>
+                <input type="email" name="email" placeholder="userName@example.com" required>
+                <input type="text" name="nickName" placeholder="nickName" required>
+                <input class="btn btn-dark" id="submit" type="submit">
+            </form>
+            {% if message2 %}
+                <p>{{ message2 }}</p>
+            {% endif %}
+        </section>
+    {% endif %}
+
+    <hr>
+
+    <section class="colored-section container mycreatePage" id="details">
+        <h3>search form</h3>
+        <form method="get" action="/users" class="needs-validation" novalidate>
+            <label class="form-label" for="newEmail">search user by email : </label><br>
+            <input type="email" name="email" placeholder="userName@example.com">
+            <input class="btn btn-dark" id="submit" type="submit" value="search">
+        </form>
+        {% if email %}
+            <div class="col-lg-4">
+                <div class="card" id="card">
+                    <div class="member-card pt-2 pb-2">
+                        <li><h5>Name : {{ name }}</h5></li>
+                        <li><h5>Email : {{ email }}</h5></li>
+                        <li><h5>Nick Name : {{ nickName }}</h5></li>
+                    </div>
+                </div>
+            </div>
+        {% endif %}
+
+        {% if message1 %}
+            <p>{{ message1 }}</p>
+        {% endif %}
+
+        {% if user_dict %}
+            <section class="container my-2 p-5">
+                <div class="container">
+                    <div class="row g-4">
+                        {% for k, v in user_dict.items() %}
+                            <div class="col-lg-4">
+                                <div class="card" id="card">
+                                    <div class="member-card pt-2 pb-2">
+                                        <ol>
+                                            <li><h5>Name : {{ v[0] }}</h5></li>
+                                            <li><h5>Email : {{ k }}</h5></li>
+                                            <li><h5>Nick Name : {{ v[1] }}</h5></li>
+                                        </ol>
+                                    </div>
+                                </div>
+                            </div>
+                        {% endfor %}
+                    </div>
+                </div>
+            </section>
+        {% endif %}
+    </section>
+{% endblock %}
